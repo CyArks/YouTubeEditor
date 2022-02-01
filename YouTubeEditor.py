@@ -263,12 +263,13 @@ class Playlist:
         return request.execute()
 
     """Create Playlist Backup"""
-    def createBackup(self, items: list, backupPath=None):
+    def createBackup(self, backupPath=None):
         if backupPath is None:
             backupPath = f"{os.getcwd()}\\{self.getTitle()}_backup.xlsx"
         try:
             xlWriter = pd.ExcelWriter(backupPath)
-            df = pd.DataFrame(items)
+            data = self.getPlaylistVideos()
+            df = pd.DataFrame(data)
 
             df['snippet'].apply(pd.Series).to_excel(xlWriter, sheet_name='snippet', index=False)
             df['contentDetails'].apply(pd.Series).to_excel(xlWriter, sheet_name='contentDetails', index=False)
