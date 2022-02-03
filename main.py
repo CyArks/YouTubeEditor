@@ -1,7 +1,7 @@
 from pprint import pprint
 import YouTubeEditor as YTE
 
-playlistIds = ['PLei_nvJru1BDnEvoYmigBWl25hnV5WhFH', "PLei_nvJru1BDNNgNIHeHtKTgUK7TO9uqy"]
+playlistIds = []
 
 
 for playlistId in playlistIds:
